@@ -29,14 +29,17 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
+
                 <configuration>
                     <failIfNoTests>true</failIfNoTests>
                 </configuration>
+
             </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.5</version>
+
                 <executions>
                     <execution>
                         <id>prepare-agent</id>
@@ -45,6 +48,7 @@
                             <goal>prepare-agent</goal>
                         </goals>
                     </execution>
+
                     <execution>
                         <id>report</id>
                         <phase>verify</phase>
@@ -52,6 +56,7 @@
                             <goal>report</goal>
                         </goals>
                     </execution>
+
                     <execution>
                         <id>check</id>
                         <goals>
@@ -59,20 +64,15 @@
                         </goals>
                     </execution>
                 </executions>
+
                 <configuration>
                     <rules>
                         <rule>
-                            <element>BUNDLE</element>
                             <limits>
                                 <limit>
                                     <counter>INSTRUCTION</counter>
                                     <value>COVEREDRATIO</value>
-                                    <minimum>0.80</minimum>
-                                </limit>
-                                <limit>
-                                    <counter>CLASS</counter>
-                                    <value>MISSEDCOUNT</value>
-                                    <maximum>0</maximum>
+                                    <minimum>100%</minimum>
                                 </limit>
                             </limits>
                         </rule>
